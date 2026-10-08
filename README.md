@@ -128,6 +128,24 @@ pwnwatch cleanup          # remove bar integrations left by 0.3/0.4
 pwnwatch serve            # run the backend in the foreground (debugging)
 ```
 
+## Settings
+
+<img src="docs/settings.png" width="420" align="right" alt="Settings panel">
+
+Press `,` (or the gear icon) to open the settings panel:
+
+- **CTFtime team**: paste your team ID or team URL (`ctftime.org/team/12345`). CTFtime has no API keys, so the public ID is enough. It fills in the **Team** tab and your results in **Past**.
+- **Home country**: events and stories from it get a ★, and it's the default leaderboard. The CTF list still shows every country.
+- **Time zone**: every start/end time, countdown and "this week" follows it (local time or any UTC offset).
+- **Big event weight**: CTFtime weight from which a CTF counts as a big event.
+- **Watch words**: stories that mention them get a ★ (e.g. Romania, Bitdefender, DNSC).
+- **Opportunity searches**: one news search per line for News → Opportunities. Start a line with `ro:` to search Romanian news.
+- **Feeds**: turn built-in feeds on or off, add any RSS/Atom feed, remove the ones you added.
+
+Changes apply right away. The theme always follows Omarchy.
+
+<br clear="right">
+
 ## Configuration
 
 Most things live in the settings panel (`,`). `~/.config/pwnwatch/config.toml` adds your own events:

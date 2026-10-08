@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=pwnwatch
+GenericName=Security News & CTF Radar
+Comment=Cybersecurity news, CTFs and your CTF history
+Exec=@BIN@
+Terminal=false
+Icon=@ICON@
+Categories=Network;Security;News;
+Keywords=ctf;security;news;hacking;infosec;ctftime;
+StartupWMClass=chrome-127.0.0.1__-Default

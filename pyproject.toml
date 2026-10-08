@@ -1,0 +1,32 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "pwnwatch"
+version = "0.5.0"
+description = "Cybersecurity news, CTF radar and CTF history app for Linux, made for Omarchy"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.11"
+dependencies = []
+keywords = ["ctf", "cybersecurity", "infosec", "desktop", "omarchy", "hyprland", "ctftime"]
+classifiers = [
+    "Environment :: Web Environment",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3",
+    "Topic :: Security",
+]
+
+[project.urls]
+Homepage = "https://github.com/Anthony693Gab/pwnwatch"
+Issues = "https://github.com/Anthony693Gab/pwnwatch/issues"
+
+[project.scripts]
+pwnwatch = "pwnwatch.__main__:main"
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/pwnwatch"]

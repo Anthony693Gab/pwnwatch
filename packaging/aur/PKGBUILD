@@ -1,0 +1,39 @@
+# Maintainer: YOUR NAME <you at example dot com>
+pkgname=pwnwatch
+pkgver=0.5.0
+pkgrel=1
+pkgdesc="Cybersecurity news, CTF radar and CTF history app, themed by Omarchy"
+arch=('any')
+url="https://github.com/Anthony693Gab/pwnwatch"
+license=('MIT')
+depends=('python>=3.11')
+makedepends=('python-build' 'python-installer' 'python-hatchling')
+optdepends=(
+  'chromium: app window (any Chromium-based browser works)'
+  'libnotify: daily digest notification'
+)
+source=("$pkgname-$pkgver.tar.gz::$url/archive/refs/tags/v$pkgver.tar.gz")
+sha256sums=('SKIP')  # replace with the real sum: updpkgsums
+
+build() {
+  cd "$pkgname-$pkgver"
+  python -m build --wheel --no-isolation
+}
+
+check() {
+  cd "$pkgname-$pkgver"
+  python -c "import sys; sys.path.insert(0, 'src'); import pwnwatch.server"
+}
+
+package() {
+  cd "$pkgname-$pkgver"
+  python -m installer --destdir="$pkgdir" dist/*.whl
+  install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+  install -Dm644 contrib/icons/pwnwatch.svg "$pkgdir/usr/share/icons/hicolor/scalable/apps/pwnwatch.svg"
+  sed -e 's|@BIN@|/usr/bin/pwnwatch|' -e 's|@ICON@|pwnwatch|' contrib/pwnwatch.desktop \
+    | install -Dm644 /dev/stdin "$pkgdir/usr/share/applications/pwnwatch.desktop"
+  # Daily digest: enable per user with  systemctl --user enable --now pwnwatch-digest.timer
+  sed 's|@BIN@|/usr/bin/pwnwatch|' contrib/systemd/pwnwatch-digest.service \
+    | install -Dm644 /dev/stdin "$pkgdir/usr/lib/systemd/user/pwnwatch-digest.service"
+  install -Dm644 contrib/systemd/pwnwatch-digest.timer "$pkgdir/usr/lib/systemd/user/pwnwatch-digest.timer"
+}

@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+*.egg-info/
+.pytest_cache/
+.venv/
+dist/
+build/
+packaging/aur/*.tar.gz
+packaging/aur/pkg/
+packaging/aur/src/
+packaging/aur/*.pkg.tar.zst

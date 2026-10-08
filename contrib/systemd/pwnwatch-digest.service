@@ -1,0 +1,7 @@
+[Unit]
+Description=pwnwatch daily security news + CTF digest
+After=network-online.target graphical-session.target
+
+[Service]
+Type=oneshot
+ExecStart=@BIN@ digest

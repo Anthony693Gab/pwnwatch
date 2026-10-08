@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#20222e"/>
+      <stop offset="1" stop-color="#14151c"/>
+    </linearGradient>
+    <linearGradient id="sh" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#8fb3ff"/>
+      <stop offset="1" stop-color="#4f7cf0"/>
+    </linearGradient>
+  </defs>
+  <rect x="8" y="8" width="240" height="240" rx="56" fill="url(#bg)"/>
+  <rect x="8.5" y="8.5" width="239" height="239" rx="55.5" fill="none" stroke="#ffffff" stroke-opacity=".07"/>
+  <!-- shield -->
+  <path d="M128 40 L196 64 V122 C196 164 168 196 128 214 C88 196 60 164 60 122 V64 Z" fill="url(#sh)"/>
+  <!-- lens: the "watch" -->
+  <circle cx="128" cy="124" r="40" fill="#14151c"/>
+  <path d="M128 124 L128 84 A40 40 0 0 1 162.6 104 Z" fill="#8fb3ff" fill-opacity=".35"/>
+  <circle cx="128" cy="124" r="40" fill="none" stroke="#14151c" stroke-width="6"/>
+  <circle cx="128" cy="124" r="26" fill="none" stroke="#8fb3ff" stroke-opacity=".35" stroke-width="2"/>
+  <circle cx="128" cy="124" r="9" fill="#e8eeff"/>
+  <circle cx="150" cy="100" r="5" fill="#ff6b81"/>
+</svg>

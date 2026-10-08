@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>pwnwatch</title>
+  <link rel="stylesheet" id="theme-css" href="/theme.css">
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="icon" href="/static/icon.svg" type="image/svg+xml">
+</head>
+<body>
+  <header class="top">
+    <nav class="views" role="tablist">
+      <img class="logo-mark" src="/static/icon.svg" alt="">
+      <button class="view" data-view="news" role="tab"><span class="bar"></span>NEWS</button>
+      <button class="view" data-view="ctf" role="tab"><span class="bar"></span>CTF</button>
+      <span id="headline-count" class="count"></span>
+    </nav>
+    <div class="search-wrap" id="search-wrap">
+      <input id="search" type="search" placeholder="search…" autocomplete="off" spellcheck="false">
+    </div>
+    <div class="tools">
+      <button class="icon" id="btn-search" title="Search  /"></button>
+      <button class="icon" id="btn-refresh" title="Refresh  r"></button>
+      <button class="icon" id="btn-settings" title="Settings  ,"></button>
+    </div>
+  </header>
+
+  <div class="filters">
+    <div class="chips" id="chips"></div>
+    <div class="pickers" id="pickers"></div>
+  </div>
+
+  <main id="list" tabindex="-1"></main>
+
+  <footer class="foot">
+    <span id="foot-left"></span>
+    <span id="foot-right"></span>
+  </footer>
+
+  <aside class="drawer" id="drawer" hidden>
+    <div class="drawer-head">
+      <span class="bar"></span><span>SETTINGS</span>
+      <button class="icon" id="btn-close" title="Close  esc"></button>
+    </div>
+    <form id="settings-form" autocomplete="off">
+      <label class="field">
+        <span>CTFtime team</span>
+        <input name="team_id" placeholder="12345 or https://ctftime.org/team/12345">
+        <small>CTFtime has no API keys — its API is public, so your team's public ID
+          (from your team page URL) is all pwnwatch needs. Your results then fill in your Past tab.</small>
+      </label>
+      <div class="row2">
+        <label class="field" title="Gets a ★ on events and stories, and is the default leaderboard. The CTF list always shows every country."><span>Home country</span>
+          <select name="home_country" id="set-country"></select></label>
+        <label class="field"><span>Time zone</span>
+          <select name="timezone" id="set-tz"></select></label>
+      </div>
+      <div class="row2">
+        <label class="field"><span>Big event weight ≥</span>
+          <input name="big_weight" type="number" step="1" min="0" max="100"></label>
+        <label class="field"><span>Watch words</span>
+          <input name="watch_words" placeholder="Romania, Bitdefender"></label>
+      </div>
+      <label class="field"><span>Opportunity searches</span>
+        <textarea name="opportunity_queries" rows="4" spellcheck="false"></textarea>
+        <small>One news search per line — competitions, CTFs and scholarships the security sites don't
+          cover land in News → Opportunities. Start a line with <code>ro:</code> to search Romanian news.</small>
+      </label>
+      <div class="field"><span>Feeds</span>
+        <div id="feed-list" class="feed-list"></div>
+        <div class="row2 add-feed">
+          <input id="new-feed-name" placeholder="name">
+          <input id="new-feed-url" placeholder="https://…/feed.xml">
+        </div>
+      </div>
+      <div class="drawer-foot">
+        <span id="theme-name" class="muted"></span>
+        <button type="submit" class="btn primary">Save</button>
+      </div>
+    </form>
+  </aside>
+
+  <div class="toast" id="toast" hidden></div>
+  <script src="/static/app.js"></script>
+</body>
+</html>
